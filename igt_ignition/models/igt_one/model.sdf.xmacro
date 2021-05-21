@@ -1,0 +1,509 @@
+<?xml version="1.0" ?>
+<sdf version='1.7'>
+
+  <xacro_define_macro name="body_color">
+    <ambient>0.7 0.7 0.7 1.0</ambient>
+    <diffuse>0.7 0.7 0.7 1.0</diffuse>
+    <specular>0.01 0.01 0.01 1.0</specular>
+  </xacro_define_macro>
+
+  <xacro_define_macro name="wheel_color">
+    <ambient>0.4 0.4 0.4 1.0</ambient>
+    <diffuse>0.4 0.4 0.4 1.0</diffuse>
+    <specular>0.01 0.01 0.01 1.0</specular>
+  </xacro_define_macro>
+
+  <xacro_define_macro name="lidar_color">
+    <ambient>0.1 0.1 0.1 1.0</ambient>
+    <diffuse>0.1 0.1 0.1 1.0</diffuse>
+    <specular>0.01 0.01 0.01 1.0</specular>
+  </xacro_define_macro>
+  
+  <model name='igt_one'>
+    <link name='base_link'>
+      <inertial>
+        <pose>-0.005131 -0.003499 0.186131 0 -0 0</pose>
+        <mass>85.9438</mass>
+        <inertia>
+          <ixx>2.96849</ixx>
+          <ixy>0.0176544</ixy>
+          <ixz>0.128651</ixz>
+          <iyy>3.93598</iyy>
+          <iyz>0.0101395</iyz>
+          <izz>5.58313</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__lidar_collision_1'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/lidar.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__caster_front_collision_2'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/caster_front.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.01</mu>
+              <mu2>0.01</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__caster_back_collision_3'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/caster_back.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.01</mu>
+              <mu2>0.01</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__d435_link_collision_4'>
+        <pose>0 0 0.5125 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02505 0.09 0.025</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <xacro_macro name="body_color" />
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__lidar_visual_1'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/lidar.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <xacro_macro name="lidar_color" />
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__caster_front_visual_2'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/caster_front.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <xacro_macro name="wheel_color" />
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__caster_back_visual_3'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/caster_back.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <xacro_macro name="wheel_color" />
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__d435_link_visual_4'>
+        <pose>0.0149 0 0.5125 1.5708 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://igt_one/meshes/realsense_d435.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay/>
+      <velocity_decay/>
+      <velocity_decay/>
+      <velocity_decay/>
+      <velocity_decay/>
+      <sensor name='front_lidar' type='ray'>
+        <visualize>0</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>720</samples>
+              <resolution>1</resolution>
+              <min_angle>-1.8326</min_angle>
+              <max_angle>1.8326</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.05</min>
+            <max>20</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
+          <topicName>/igt_one/laserscan</topicName>
+          <frameName>lidar</frameName>
+        </plugin>
+        <pose>0.278738 3e-06 0.044475 0 -0 0</pose>
+      </sensor>
+      <velocity_decay/>
+      <velocity_decay/>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+      <enable_wind>0</enable_wind>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <sensor name='d435_color' type='camera'>
+        <camera name='d435'>
+          <horizontal_fov>1.21126</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>RGB_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>1</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor>
+      <sensor name='d435_ired1' type='camera'>
+        <camera name='d435'>
+          <horizontal_fov>1.48702</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>L_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.05</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor>
+      <sensor name='d435_ired2' type='camera'>
+        <camera name='d435'>
+          <horizontal_fov>1.48702</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>L_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.05</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor>
+      <sensor name='d435_depth' type='depth'>
+        <camera name='d435'>
+          <horizontal_fov>1.48702</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.1</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='left_motor' type='revolute'>
+      <pose relative_to='base_link'>0 0.214022 0.07811 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>left_wheel</child>
+      <axis>
+        <xyz>0 0.01 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_wheel'>
+      <pose relative_to='left_motor'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.030102 0 0 -0 0</pose>
+        <mass>5.89813</mass>
+        <inertia>
+          <ixx>0.009626</ixx>
+          <ixy>0</ixy>
+          <ixz>3e-06</ixz>
+          <iyy>0.017338</iyy>
+          <iyz>0</iyz>
+          <izz>0.009622</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wheel_collision'>
+        <pose>0 -0.214022 -0.07811 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/left_wheel.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>500</mu>
+              <mu2>500</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='left_wheel_visual'>
+        <pose>0 -0.214022 -0.07811 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/left_wheel.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <xacro_macro name="wheel_color" />
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='right_motor' type='revolute'>
+      <pose relative_to='base_link'>0 -0.214022 0.07811 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>right_wheel</child>
+      <axis>
+        <xyz>0 0.01 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_wheel'>
+      <pose relative_to='right_motor'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 -0.030102 0 0 -0 0</pose>
+        <mass>5.89813</mass>
+        <inertia>
+          <ixx>0.009626</ixx>
+          <ixy>0</ixy>
+          <ixz>3e-06</ixz>
+          <iyy>0.017338</iyy>
+          <iyz>0</iyz>
+          <izz>0.009622</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wheel_collision'>
+        <pose>0 0.214022 -0.07811 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/right_wheel.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>500</mu>
+              <mu2>500</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_wheel_visual'>
+        <pose>0 0.214022 -0.07811 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://igt_one/meshes/right_wheel.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <xacro_macro name="wheel_color" />
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/igt_one</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>1</legacyModeNS>
+    </plugin>
+    <plugin name='differential_drive_controller' filename='libgazebo_ros_diff_drive.so'>
+      <legacyMode>0</legacyMode>
+      <alwaysOn>1</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>left_motor</leftJoint>
+      <rightJoint>right_motor</rightJoint>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+    <static>0</static>
+    <plugin name='d435' filename='librealsense_gazebo_plugin.so'>
+      <prefix>d435_</prefix>
+      <depthUpdateRate>10</depthUpdateRate>
+      <colorUpdateRate>10</colorUpdateRate>
+      <infraredUpdateRate>10</infraredUpdateRate>
+      <depthTopicName>depth/image_raw</depthTopicName>
+      <depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
+      <colorTopicName>color/image_raw</colorTopicName>
+      <colorCameraInfoTopicName>color/camera_info</colorCameraInfoTopicName>
+      <infrared1TopicName>infra1/image_raw</infrared1TopicName>
+      <infrared1CameraInfoTopicName>infra1/camera_info</infrared1CameraInfoTopicName>
+      <infrared2TopicName>infra2/image_raw</infrared2TopicName>
+      <infrared2CameraInfoTopicName>infra2/camera_info</infrared2CameraInfoTopicName>
+      <colorOpticalframeName>d435_color_optical_frame</colorOpticalframeName>
+      <depthOpticalframeName>d435_depth_optical_frame</depthOpticalframeName>
+      <infrared1OpticalframeName>d435_infrared1_optical_frame</infrared1OpticalframeName>
+      <infrared2OpticalframeName>d435_infrared2_optical_frame</infrared2OpticalframeName>
+      <rangeMinDepth>0.2</rangeMinDepth>
+      <rangeMaxDepth>10.0</rangeMaxDepth>
+      <pointCloud>0</pointCloud>
+      <pointCloudTopicName>depth/color/points</pointCloudTopicName>
+      <pointCloudCutoff>0.25</pointCloudCutoff>
+      <pointCloudCutoffMax>9.0</pointCloudCutoffMax>
+    </plugin>
+  </model>
+</sdf>
