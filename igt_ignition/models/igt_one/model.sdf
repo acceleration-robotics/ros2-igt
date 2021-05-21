@@ -99,7 +99,7 @@
 				</surface>
 			</collision>
 			<collision name="base_link_fixed_joint_lump__d435_link_collision_4">
-				<pose>0 0 0.5125 0 -0 0</pose>
+				<pose>0 -0.0175 0 0 -0 0</pose>
 				<geometry>
 					<box>
 						<size>0.02505 0.09 0.025</size>
@@ -190,35 +190,35 @@
 			<velocity_decay/>
 			<velocity_decay/>
 			<velocity_decay/>
-			<sensor name="front_lidar" type="ray">
-				<visualize>0</visualize>
-				<update_rate>10</update_rate>
-				<ray>
-					<scan>
-						<horizontal>
-							<samples>720</samples>
-							<resolution>1</resolution>
-							<min_angle>-1.8326</min_angle>
-							<max_angle>1.8326</max_angle>
-						</horizontal>
-					</scan>
-					<range>
-						<min>0.05</min>
-						<max>20</max>
-						<resolution>0.01</resolution>
-					</range>
-					<noise>
-						<type>gaussian</type>
-						<mean>0</mean>
-						<stddev>0.01</stddev>
-					</noise>
-				</ray>
-				<plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_head_hokuyo_controller">
-					<topicName>/igt_one/laserscan</topicName>
-					<frameName>lidar</frameName>
-				</plugin>
-				<pose>0.278738 3e-06 0.044475 0 -0 0</pose>
-			</sensor>
+			<!-- <sensor name='front_lidar' type='ray'>
+        <visualize>0</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>720</samples>
+              <resolution>1</resolution>
+              <min_angle>-1.8326</min_angle>
+              <max_angle>1.8326</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.05</min>
+            <max>20</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
+          <topicName>/igt_one/laserscan</topicName>
+          <frameName>lidar</frameName>
+        </plugin>
+        <pose>0.278738 3e-06 0.044475 0 -0 0</pose>
+      </sensor> -->
 			<velocity_decay/>
 			<velocity_decay/>
 			<velocity_decay/>
@@ -231,97 +231,97 @@
 			<enable_wind>0</enable_wind>
 			<kinematic>0</kinematic>
 			<gravity>1</gravity>
-			<sensor name="d435_color" type="camera">
-				<camera name="d435">
-					<horizontal_fov>1.21126</horizontal_fov>
-					<image>
-						<width>640</width>
-						<height>480</height>
-						<format>RGB_INT8</format>
-					</image>
-					<clip>
-						<near>0.1</near>
-						<far>100</far>
-					</clip>
-					<noise>
-						<type>gaussian</type>
-						<mean>0</mean>
-						<stddev>0.007</stddev>
-					</noise>
-				</camera>
-				<always_on>1</always_on>
-				<update_rate>30</update_rate>
-				<visualize>1</visualize>
-				<pose>0 0.0175 0.5125 0 -0 0</pose>
-			</sensor>
-			<sensor name="d435_ired1" type="camera">
-				<camera name="d435">
-					<horizontal_fov>1.48702</horizontal_fov>
-					<image>
-						<width>1280</width>
-						<height>720</height>
-						<format>L_INT8</format>
-					</image>
-					<clip>
-						<near>0.1</near>
-						<far>100</far>
-					</clip>
-					<noise>
-						<type>gaussian</type>
-						<mean>0</mean>
-						<stddev>0.05</stddev>
-					</noise>
-				</camera>
-				<always_on>1</always_on>
-				<update_rate>90</update_rate>
-				<visualize>0</visualize>
-				<pose>0 0.0175 0.5125 0 -0 0</pose>
-			</sensor>
-			<sensor name="d435_ired2" type="camera">
-				<camera name="d435">
-					<horizontal_fov>1.48702</horizontal_fov>
-					<image>
-						<width>1280</width>
-						<height>720</height>
-						<format>L_INT8</format>
-					</image>
-					<clip>
-						<near>0.1</near>
-						<far>100</far>
-					</clip>
-					<noise>
-						<type>gaussian</type>
-						<mean>0</mean>
-						<stddev>0.05</stddev>
-					</noise>
-				</camera>
-				<always_on>1</always_on>
-				<update_rate>90</update_rate>
-				<visualize>0</visualize>
-				<pose>0 0.0175 0.5125 0 -0 0</pose>
-			</sensor>
-			<sensor name="d435_depth" type="depth">
-				<camera name="d435">
-					<horizontal_fov>1.48702</horizontal_fov>
-					<image>
-						<width>1280</width>
-						<height>720</height>
-					</image>
-					<clip>
-						<near>0.1</near>
-						<far>100</far>
-					</clip>
-					<noise>
-						<type>gaussian</type>
-						<mean>0</mean>
-						<stddev>0.1</stddev>
-					</noise>
-				</camera>
-				<always_on>1</always_on>
-				<update_rate>90</update_rate>
-				<visualize>0</visualize>
-				<pose>0 0.0175 0.5125 0 -0 0</pose>
-			</sensor>
+			<!-- <sensor name='d435_color' type='camera'>
+        <camera name='d435'>
+          <horizontal_fov>1.21126</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>RGB_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>1</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor>
+      <sensor name='d435_ired1' type='camera'>
+        <camera name='d435'>
+          <horizontal_fov>1.48702</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>L_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.05</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor>
+      <sensor name='d435_ired2' type='camera'>
+        <camera name='d435'>
+          <horizontal_fov>1.48702</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>L_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.05</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor>
+      <sensor name='d435_depth' type='depth'>
+        <camera name='d435'>
+          <horizontal_fov>1.48702</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.1</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+        <pose>0 0.0175 0.5125 0 -0 0</pose>
+      </sensor> -->
 		</link>
 		<joint name="left_motor" type="revolute">
 			<pose relative_to="base_link">0 0.214022 0.07811 0 -0 0</pose>
@@ -461,46 +461,46 @@
 			<velocity_decay/>
 			<self_collide>1</self_collide>
 		</link>
-		<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-			<robotNamespace>/igt_one</robotNamespace>
-			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-			<legacyModeNS>1</legacyModeNS>
-		</plugin>
-		<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
-			<legacyMode>0</legacyMode>
-			<alwaysOn>1</alwaysOn>
-			<updateRate>20</updateRate>
-			<leftJoint>left_motor</leftJoint>
-			<rightJoint>right_motor</rightJoint>
-			<commandTopic>cmd_vel</commandTopic>
-			<odometryTopic>odom</odometryTopic>
-			<odometryFrame>odom</odometryFrame>
-			<robotBaseFrame>base_link</robotBaseFrame>
-		</plugin>
-		<static>0</static>
-		<plugin filename="librealsense_gazebo_plugin.so" name="d435">
-			<prefix>d435_</prefix>
-			<depthUpdateRate>10</depthUpdateRate>
-			<colorUpdateRate>10</colorUpdateRate>
-			<infraredUpdateRate>10</infraredUpdateRate>
-			<depthTopicName>depth/image_raw</depthTopicName>
-			<depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
-			<colorTopicName>color/image_raw</colorTopicName>
-			<colorCameraInfoTopicName>color/camera_info</colorCameraInfoTopicName>
-			<infrared1TopicName>infra1/image_raw</infrared1TopicName>
-			<infrared1CameraInfoTopicName>infra1/camera_info</infrared1CameraInfoTopicName>
-			<infrared2TopicName>infra2/image_raw</infrared2TopicName>
-			<infrared2CameraInfoTopicName>infra2/camera_info</infrared2CameraInfoTopicName>
-			<colorOpticalframeName>d435_color_optical_frame</colorOpticalframeName>
-			<depthOpticalframeName>d435_depth_optical_frame</depthOpticalframeName>
-			<infrared1OpticalframeName>d435_infrared1_optical_frame</infrared1OpticalframeName>
-			<infrared2OpticalframeName>d435_infrared2_optical_frame</infrared2OpticalframeName>
-			<rangeMinDepth>0.2</rangeMinDepth>
-			<rangeMaxDepth>10.0</rangeMaxDepth>
-			<pointCloud>0</pointCloud>
-			<pointCloudTopicName>depth/color/points</pointCloudTopicName>
-			<pointCloudCutoff>0.25</pointCloudCutoff>
-			<pointCloudCutoffMax>9.0</pointCloudCutoffMax>
-		</plugin>
+		<!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/igt_one</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>1</legacyModeNS>
+    </plugin>
+    <plugin name='differential_drive_controller' filename='libgazebo_ros_diff_drive.so'>
+      <legacyMode>0</legacyMode>
+      <alwaysOn>1</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>left_motor</leftJoint>
+      <rightJoint>right_motor</rightJoint>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+    <static>0</static>
+    <plugin name='d435' filename='librealsense_gazebo_plugin.so'>
+      <prefix>d435_</prefix>
+      <depthUpdateRate>10</depthUpdateRate>
+      <colorUpdateRate>10</colorUpdateRate>
+      <infraredUpdateRate>10</infraredUpdateRate>
+      <depthTopicName>depth/image_raw</depthTopicName>
+      <depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
+      <colorTopicName>color/image_raw</colorTopicName>
+      <colorCameraInfoTopicName>color/camera_info</colorCameraInfoTopicName>
+      <infrared1TopicName>infra1/image_raw</infrared1TopicName>
+      <infrared1CameraInfoTopicName>infra1/camera_info</infrared1CameraInfoTopicName>
+      <infrared2TopicName>infra2/image_raw</infrared2TopicName>
+      <infrared2CameraInfoTopicName>infra2/camera_info</infrared2CameraInfoTopicName>
+      <colorOpticalframeName>d435_color_optical_frame</colorOpticalframeName>
+      <depthOpticalframeName>d435_depth_optical_frame</depthOpticalframeName>
+      <infrared1OpticalframeName>d435_infrared1_optical_frame</infrared1OpticalframeName>
+      <infrared2OpticalframeName>d435_infrared2_optical_frame</infrared2OpticalframeName>
+      <rangeMinDepth>0.2</rangeMinDepth>
+      <rangeMaxDepth>10.0</rangeMaxDepth>
+      <pointCloud>0</pointCloud>
+      <pointCloudTopicName>depth/color/points</pointCloudTopicName>
+      <pointCloudCutoff>0.25</pointCloudCutoff>
+      <pointCloudCutoffMax>9.0</pointCloudCutoffMax>
+    </plugin> -->
 	</model>
 </sdf>

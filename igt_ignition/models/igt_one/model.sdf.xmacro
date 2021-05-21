@@ -114,7 +114,7 @@
         </surface>
       </collision>
       <collision name='base_link_fixed_joint_lump__d435_link_collision_4'>
-        <pose>0 0 0.5125 0 -0 0</pose>
+        <pose>0 -0.0175 0 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.02505 0.09 0.025</size>
@@ -192,12 +192,14 @@
           </mesh>
         </geometry>
       </visual>
+
       <velocity_decay/>
       <velocity_decay/>
       <velocity_decay/>
       <velocity_decay/>
       <velocity_decay/>
-      <sensor name='front_lidar' type='ray'>
+
+      <!-- <sensor name='front_lidar' type='ray'>
         <visualize>0</visualize>
         <update_rate>10</update_rate>
         <ray>
@@ -225,10 +227,12 @@
           <frameName>lidar</frameName>
         </plugin>
         <pose>0.278738 3e-06 0.044475 0 -0 0</pose>
-      </sensor>
+      </sensor> -->
+
       <velocity_decay/>
       <velocity_decay/>
       <velocity_decay/>
+
       <gravity>1</gravity>
       <velocity_decay/>
       <self_collide>1</self_collide>
@@ -238,7 +242,8 @@
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
       <gravity>1</gravity>
-      <sensor name='d435_color' type='camera'>
+
+      <!-- <sensor name='d435_color' type='camera'>
         <camera name='d435'>
           <horizontal_fov>1.21126</horizontal_fov>
           <image>
@@ -328,8 +333,9 @@
         <update_rate>90</update_rate>
         <visualize>0</visualize>
         <pose>0 0.0175 0.5125 0 -0 0</pose>
-      </sensor>
+      </sensor> -->
     </link>
+
     <joint name='left_motor' type='revolute'>
       <pose relative_to='base_link'>0 0.214022 0.07811 0 -0 0</pose>
       <parent>base_link</parent>
@@ -397,6 +403,7 @@
       <velocity_decay/>
       <self_collide>1</self_collide>
     </link>
+
     <joint name='right_motor' type='revolute'>
       <pose relative_to='base_link'>0 -0.214022 0.07811 0 -0 0</pose>
       <parent>base_link</parent>
@@ -464,7 +471,8 @@
       <velocity_decay/>
       <self_collide>1</self_collide>
     </link>
-    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+
+    <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
       <robotNamespace>/igt_one</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>1</legacyModeNS>
@@ -504,6 +512,6 @@
       <pointCloudTopicName>depth/color/points</pointCloudTopicName>
       <pointCloudCutoff>0.25</pointCloudCutoff>
       <pointCloudCutoffMax>9.0</pointCloudCutoffMax>
-    </plugin>
+    </plugin> -->
   </model>
 </sdf>
