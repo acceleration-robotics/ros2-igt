@@ -21,7 +21,7 @@ def generate_launch_description():
 		),
 	)
 
-	# spawn urdf
+	# spawn sdf
 	spawn_sdf = Node(package='ros_ign_gazebo', executable='create',
 			arguments=['-name', 'igt_one',
 				'-x', '0.0',
@@ -36,5 +36,6 @@ def generate_launch_description():
 					 ' -v 2 --gui-config ' +
 					 os.path.join(pkg_igt_ignition, 'ign', 'gui.config'), ''],
 		  description='Ignition Gazebo arguments'),
-		gazebo
+		gazebo,
+		spawn_sdf
 	])
