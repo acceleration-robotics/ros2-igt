@@ -99,7 +99,7 @@
 				</surface>
 			</collision>
 			<collision name="base_link_fixed_joint_lump__d435_link_collision_4">
-				<pose>0 -0.0175 0 0 -0 0</pose>
+				<pose>0 0 0.5125 0 -0 0</pose>
 				<geometry>
 					<box>
 						<size>0.02505 0.09 0.025</size>
@@ -177,7 +177,7 @@
 				</material>
 			</visual>
 			<visual name="base_link_fixed_joint_lump__d435_link_visual_4">
-				<pose>0.0149 0 0.5125 1.5708 -0 1.5708</pose>
+				<pose>0.0149 -0.0175 0 1.5708 -0 1.5708</pose>
 				<geometry>
 					<mesh>
 						<scale>1 1 1</scale>
@@ -502,5 +502,12 @@
       <pointCloudCutoff>0.25</pointCloudCutoff>
       <pointCloudCutoffMax>9.0</pointCloudCutoffMax>
     </plugin> -->
+		<plugin filename="ignition-gazebo-diff-drive-system" name="ignition::gazebo::systems::DiffDrive">
+			<left_joint>left_motor</left_joint>
+			<right_joint>right_motor</right_joint>
+			<wheel_separation>0.50</wheel_separation>
+			<wheel_radius>0.77</wheel_radius>
+			<odom_publish_frequency>1</odom_publish_frequency>
+		</plugin>
 	</model>
 </sdf>
