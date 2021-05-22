@@ -26,7 +26,7 @@ ros2 launch igt_ignition igt_ignition.launch.py
 ```
 
 <img src="./igt_ignition/images/igt_gazebo.png"/>
-
+<img src="./igt_ignition/images/ign_gazebo_image_display.png"/>
 
 ### Publish velocities using <code>ign topic</code>
 
