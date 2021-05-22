@@ -190,35 +190,36 @@
 			<velocity_decay/>
 			<velocity_decay/>
 			<velocity_decay/>
-			<!-- <sensor name='front_lidar' type='ray'>
-        <visualize>0</visualize>
-        <update_rate>10</update_rate>
-        <ray>
-          <scan>
-            <horizontal>
-              <samples>720</samples>
-              <resolution>1</resolution>
-              <min_angle>-1.8326</min_angle>
-              <max_angle>1.8326</max_angle>
-            </horizontal>
-          </scan>
-          <range>
-            <min>0.05</min>
-            <max>20</max>
-            <resolution>0.01</resolution>
-          </range>
-          <noise>
-            <type>gaussian</type>
-            <mean>0</mean>
-            <stddev>0.01</stddev>
-          </noise>
-        </ray>
-        <plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
-          <topicName>/igt_one/laserscan</topicName>
+			<sensor name="front_lidar" type="gpu_lidar">
+				<pose>0.278738 3e-06 0.044475 0 -0 0</pose>
+				<topic>/igt_one/laserscan</topic>
+				<visualize>0</visualize>
+				<update_rate>10</update_rate>
+				<always_on>1</always_on>
+				<ray>
+					<scan>
+						<horizontal>
+							<samples>720</samples>
+							<resolution>1</resolution>
+							<min_angle>-1.8326</min_angle>
+							<max_angle>1.8326</max_angle>
+						</horizontal>
+					</scan>
+					<range>
+						<min>0.05</min>
+						<max>20</max>
+						<resolution>0.01</resolution>
+					</range>
+					<noise>
+						<type>gaussian</type>
+						<mean>0</mean>
+						<stddev>0.01</stddev>
+					</noise>
+				</ray>
+				<!--<plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
           <frameName>lidar</frameName>
-        </plugin>
-        <pose>0.278738 3e-06 0.044475 0 -0 0</pose>
-      </sensor> -->
+        </plugin>-->
+			</sensor>
 			<velocity_decay/>
 			<velocity_decay/>
 			<velocity_decay/>

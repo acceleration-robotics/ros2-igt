@@ -199,9 +199,12 @@
       <velocity_decay/>
       <velocity_decay/>
 
-      <!-- <sensor name='front_lidar' type='ray'>
+      <sensor name='front_lidar' type='gpu_lidar'>
+        <pose>0.278738 3e-06 0.044475 0 -0 0</pose>
+        <topic>/igt_one/laserscan</topic>
         <visualize>0</visualize>
         <update_rate>10</update_rate>
+        <always_on>1</always_on>
         <ray>
           <scan>
             <horizontal>
@@ -222,12 +225,10 @@
             <stddev>0.01</stddev>
           </noise>
         </ray>
-        <plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
-          <topicName>/igt_one/laserscan</topicName>
+        <!--<plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
           <frameName>lidar</frameName>
-        </plugin>
-        <pose>0.278738 3e-06 0.044475 0 -0 0</pose>
-      </sensor> -->
+        </plugin>-->
+      </sensor>
 
       <velocity_decay/>
       <velocity_decay/>
