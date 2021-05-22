@@ -1,67 +1,44 @@
 # Igt One
 
 ## Installation
+  * Install [Ignition-Edifice](https://ignitionrobotics.org/docs/edifice/install_ubuntu)
+  * Create a workspace
 
 ```bash
 
-./install.sh
+mkdir -p colcon_ws/src && cd colcon_ws/src
+```
 
-cd colcon_ws
-
+  * Clone the repo
+  * Build the workspace & source the setup 
+ 
+```bash
 colcon build --symlink-install
 
 source install/setup.bash
 ```
-## Progress
+## Launch
 
->RVIZ 2
+>Ign-Gazebo
 
 ```bash
-ros2 launch tycrawler_description display.launch.py
+ros2 launch igt_ignition igt_ignition.launch.py
 ```
 
-<img src="./images/display.png"/>
-
->Gazebo 11
+<img src="./igt_ignition/images/igt_gazebo.png"/>
 
 
-You might need to source it
-
-. /usr/share/gazebo-11/setup.sh 
+### Publish velocities using <code>ign topic</code>
 
 ```bash
-ros2 launch tycrawler_description gazebo.launch.py
+ign topic -t "/model/igt_one/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 2.0}, angular: {z: 0.0}"
 ```
 
-<img src="./images/gazebo.png"/>
+### Subscribe to topics using <code>ign topic</code>
 
-
-
-### Installation dependencies
-xacro
-
-joint-state-publisher
-
-joint-state-controller
-
-pip3 install pyserial
-
-sudo usermod -a -G tty $USER
-
-sudo usermod -a -G dialout $USER
-
-
-## Real Robot Launch files
-
-### Dependencies 
-- **nav2_bringup**
-
-- for cartographer mapping
 ```bash
-ros2 launch tycrawler_nav cartographer.launch.py
+ign topic -t "/igt_one/laserscan" -e
 ```
-
-- for navigation2 stack
 ```bash
-ros2 launch tycrawler_nav navigation2.launch.py
+ign topic -t "/model/igt_one/odometry" -e
 ```
