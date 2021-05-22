@@ -1,7 +1,7 @@
 # Igt One
 
 ## Installation
-  * Install [Ignition-Edifice](https://ignitionrobotics.org/docs/edifice/install_ubuntu)
+  * Install [Ignition-Edifice](https://ignitionrobotics.org/docs/edifice/install_ubuntu) or greater.
   * Create a workspace
 
 ```bash
@@ -26,7 +26,7 @@ ros2 launch igt_ignition igt_ignition.launch.py
 ```
 
 <img src="./igt_ignition/images/igt_gazebo.png"/>
-
+<img src="./igt_ignition/images/ign_gazebo_image_display.png"/>
 
 ### Publish velocities using <code>ign topic</code>
 
