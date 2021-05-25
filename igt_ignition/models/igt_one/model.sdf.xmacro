@@ -520,6 +520,7 @@
     <plugin 
       filename="ignition-gazebo-diff-drive-system"
       name="ignition::gazebo::systems::DiffDrive">
+	<topic>cmd_vel</topic>
         <left_joint>left_motor</left_joint>
         <right_joint>right_motor</right_joint>
         <wheel_separation>0.50</wheel_separation>
