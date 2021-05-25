@@ -28,6 +28,16 @@ ros2 launch igt_ignition igt_ignition.launch.py
 <img src="./igt_ignition/images/igt_gazebo.png"/>
 <img src="./igt_ignition/images/ign_gazebo_image_display.png"/>
 
+### Launch with <code>ros_ign_bridge</code> for teleop
+
+```bash
+ros2 launch igt_ignition igt_ignition.launch.py with_bridge:=true
+```
+and then open another terminal and run
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
 ### Publish velocities using <code>ign topic</code>
 
 ```bash
