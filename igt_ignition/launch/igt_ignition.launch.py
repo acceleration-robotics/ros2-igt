@@ -21,6 +21,14 @@ def generate_launch_description():
 		),
 	)
 
+	# launch ign_bridge if with_bridge is true
+	ign_bridge = IncludeLaunchDescription(
+		PythonLaunchDescriptionSource(
+		    os.path.join(pkg_igt_ignition, 'launch', 'ign_bridge.launch.py'),
+		),
+		condition = IfCondition(LaunchConfiguration('with_bridge'))
+	)
+
 	# spawn sdf
 	spawn_sdf = Node(package='ros_ign_gazebo', executable='create',
 			arguments=['-name', 'igt_one',
@@ -36,6 +44,9 @@ def generate_launch_description():
 					 ' -v 2 --gui-config ' +
 					 os.path.join(pkg_igt_ignition, 'ign', 'gui.config'), ''],
 		  description='Ignition Gazebo arguments'),
+		DeclareLaunchArgument('with_bridge', default_value=['false'],
+					description='Launch simulation with ros ign brigde'),
 		gazebo,
-		spawn_sdf
+		spawn_sdf,
+		ign_bridge
 	])
