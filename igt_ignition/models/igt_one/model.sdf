@@ -505,6 +505,9 @@
       <pointCloudCutoff>0.25</pointCloudCutoff>
       <pointCloudCutoffMax>9.0</pointCloudCutoffMax>
     </plugin> -->
+		<!-- joint state publisher plugin -->
+		<plugin filename="libignition-gazebo-joint-state-publisher-system.so" name="ignition::gazebo::systems::JointStatePublisher"/>
+		<!-- diff dirve plugin -->
 		<plugin filename="ignition-gazebo-diff-drive-system" name="ignition::gazebo::systems::DiffDrive">
 			<topic>cmd_vel</topic>
 			<left_joint>left_motor</left_joint>
