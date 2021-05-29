@@ -13,6 +13,7 @@ def generate_launch_description():
 
 	pkg_ros_ign_gazebo = get_package_share_directory('ros_ign_gazebo')
 	pkg_igt_ignition = get_package_share_directory('igt_ignition')
+	urdf_path = pkg_igt_ignition + '/models/igt_one/igt_one.urdf'
 
 	# Gazebo launch
 	gazebo = IncludeLaunchDescription(
@@ -38,6 +39,16 @@ def generate_launch_description():
 				'-file', os.path.join(pkg_igt_ignition, 'models', 'igt_one', 'model.sdf')],
 			output='screen')
 
+	# robot state publisher node
+	state_publisher = Node(package='robot_state_publisher', executable='robot_state_publisher',
+				output='screen',
+				parameters = [
+					{'ignore_timestamp': False},
+					{'use_tf_static': True},
+					{'publish_frequency': 20.0},
+					{'robot_description': open(urdf_path).read()}],
+				arguments = [urdf_path])	
+
 	return LaunchDescription([
 		DeclareLaunchArgument(
 		  'ign_args', default_value=[os.path.join(pkg_igt_ignition, 'worlds', 'wall_world.sdf') +
@@ -48,5 +59,6 @@ def generate_launch_description():
 					description='Launch simulation with ros ign brigde'),
 		gazebo,
 		spawn_sdf,
-		ign_bridge
+		ign_bridge,
+		state_publisher
 	])
