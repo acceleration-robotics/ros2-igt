@@ -2,7 +2,13 @@
 
 ## Installation
   * Install [Ignition-Edifice](https://ignitionrobotics.org/docs/edifice/install_ubuntu) or greater.
-  * Create a workspace
+  * Install ros foxy ignition packages
+
+```bash
+sudo apt-get install ros-foxy-ros-ign*
+```
+
+* Create a workspace
 
 ```bash
 
