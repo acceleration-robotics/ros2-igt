@@ -172,14 +172,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -192,14 +192,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.0 0.214022 -0.07811"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.0 0.214022 -0.07811"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -212,14 +212,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.0 -0.214022 -0.07811"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.0 -0.214022 -0.07811"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -232,14 +232,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.278738 -3e-06 -0.044475"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.278738 -3e-06 -0.044475"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -252,14 +252,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.278737 -0.0 -0.01675"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/caster_front.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/caster_front.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.278737 -0.0 -0.01675"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/caster_front.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/caster_front.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -272,14 +272,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0.279114 0.0 -0.05275"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/caster_back.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/caster_back.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0.279114 0.0 -0.05275"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/caster_back.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/caster_back.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -299,7 +299,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0149 -0.0175 0"/>
       <geometry>
-        <mesh filename="model://igt_one/meshes/realsense_d435.stl"/>
+        <mesh filename="package://igt_ignition/models/igt_one/meshes/realsense_d435.stl"/>
       </geometry>
     </visual>
     <collision>
@@ -518,4 +518,3 @@
     <child link="caster_back"/>
   </joint>
 </robot>
-
