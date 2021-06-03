@@ -30,6 +30,18 @@ def generate_launch_description():
 				(ign_model_prefix + '/cmd_vel', '/cmd_vel')
 			])
 
+	# odometry bridge 
+	odometry_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
+			namespace = namespace,
+			name = 'odometry_bridge',
+			output='screen',
+			arguments = [
+				 ign_model_prefix + '/odometry' + '@nav_msgs/msg/Odometry' + '[ignition.msgs.Odometry'
+			],
+			remappings = [
+				(ign_model_prefix + '/odometry', '/odom_raw')
+			])
+
 	# joint state bridge 
 	joint_state_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
 			namespace = namespace,
@@ -45,5 +57,6 @@ def generate_launch_description():
 
 	return LaunchDescription([
 		cmd_vel_bridge,
-		joint_state_bridge
+		joint_state_bridge,
+		odometry_bridge
 	])
