@@ -69,21 +69,38 @@ def generate_launch_description():
 				(ign_model_prefix + '/laserscan', '/igt_one/laserscan')
 			])
 
-	# lidar points bridge 
-	lidar_points_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
+
+	# color camera bridge 
+	color_camera_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
 			namespace = namespace,
-			name = 'lidar_points_bridge',
+			name = 'color_camera_bridge',
 			output='screen',
 			arguments = [
-				 ign_model_prefix + '/laserscan/points' + '@sensor_msgs/msg/PointCloud2' + '[ignition.msgs.PointCloudPacked'
+				 ign_model_prefix + '/color_camera' + '@sensor_msgs/msg/Image' + '[ignition.msgs.Image'
 			],
 			remappings = [
-				(ign_model_prefix + '/laserscan/points', '/igt_one/laserscan/points')
+				(ign_model_prefix + '/color_camera', '/color_camera')
+			])
+
+	# depth camera bridge 
+	depth_camera_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
+			namespace = namespace,
+			name = 'depth_camera_bridge',
+			output='screen',
+			arguments = [
+				 ign_model_prefix + '/depth_camera' + '@sensor_msgs/msg/Image' + '[ignition.msgs.Image',
+				 ign_model_prefix + '/depth_camera/points' + '@sensor_msgs/msg/PointCloud2' + '[ignition.msgs.PointCloudPacked'
+			],
+			remappings = [
+				(ign_model_prefix + '/depth_camera', '/depth_camera'),
+				(ign_model_prefix + '/depth_camera/points', '/depth_camera/points')
 			])
 
 	return LaunchDescription([
 		cmd_vel_bridge,
 		joint_state_bridge,
 		odometry_bridge,
-		lidar_bridge
+		lidar_bridge,
+		color_camera_bridge,
+		depth_camera_bridge
 	])
