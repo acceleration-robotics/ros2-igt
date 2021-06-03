@@ -55,8 +55,35 @@ def generate_launch_description():
 				('/world/default/model/igt_one/joint_state', '/joint_states')
 			])
 
+	# lidar bridge 
+	lidar_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
+			namespace = namespace,
+			name = 'lidar_bridge',
+			output='screen',
+			arguments = [
+				 ign_model_prefix + '/laserscan' + '@sensor_msgs/msg/LaserScan' + '[ignition.msgs.LaserScan',
+				 ign_model_prefix + '/laserscan/points' + '@sensor_msgs/msg/PointCloud2' + '[ignition.msgs.PointCloudPacked'
+			],
+			remappings = [
+				(ign_model_prefix + '/laserscan/points', '/igt_one/laserscan/points'),
+				(ign_model_prefix + '/laserscan', '/igt_one/laserscan')
+			])
+
+	# lidar points bridge 
+	lidar_points_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
+			namespace = namespace,
+			name = 'lidar_points_bridge',
+			output='screen',
+			arguments = [
+				 ign_model_prefix + '/laserscan/points' + '@sensor_msgs/msg/PointCloud2' + '[ignition.msgs.PointCloudPacked'
+			],
+			remappings = [
+				(ign_model_prefix + '/laserscan/points', '/igt_one/laserscan/points')
+			])
+
 	return LaunchDescription([
 		cmd_vel_bridge,
 		joint_state_bridge,
-		odometry_bridge
+		odometry_bridge,
+		lidar_bridge
 	])

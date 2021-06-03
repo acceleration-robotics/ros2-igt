@@ -201,7 +201,7 @@
 
       <sensor name='front_lidar' type='gpu_lidar'>
         <pose>0.278738 3e-06 0.044475 0 -0 0</pose>
-        <topic>/igt_one/laserscan</topic>
+        <topic>/model/igt_one/laserscan</topic>
         <visualize>0</visualize>
         <update_rate>10</update_rate>
         <always_on>1</always_on>
