@@ -1,7 +1,36 @@
- 
-<sdf version='1.6'>
+<?xml version='1.0'?> 
+<sdf version='1.7'>
   <world name='default'>
-  <plugin name="hello" filename="libhello.so"/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <!-- plugins/systems that are loaded in the backend in ignition server. These 3 are also loaded by default but can be removed and new can be added -->
+    <plugin
+	filename="ignition-gazebo-physics-system"
+	name="ignition::gazebo::systems::Physics">
+    </plugin>
+
+    <plugin
+	filename="ignition-gazebo-user-commands-system"
+	name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+
+    <plugin
+	filename="ignition-gazebo-scene-broadcaster-system"
+	name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+
+    <!-- Generates rendering sensor data -->
+    <plugin
+      filename="libignition-gazebo-sensors-system.so"
+      name="ignition::gazebo::systems::Sensors">
+      <!-- ogre2 not working with just the MESA_GL_VERSION_OVERRIDE=3.3 trick -->
+      <render_engine>ogre</render_engine>
+    </plugin>
+
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose frame=''>0 0 10 0 -0 0</pose>
@@ -15,6 +44,7 @@
       </attenuation>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
+
     <model name='ground_plane'>
       <static>1</static>
       <link name='link'>
@@ -52,10 +82,9 @@
             </plane>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -63,19 +92,17 @@
         <kinematic>0</kinematic>
       </link>
     </model>
+
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
-    <physics name='default_physics' default='0' type='ode'>
-      <max_step_size>0.001</max_step_size>
-      <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
-    </physics>
+
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.7 0.7 0.7 1</background>
       <shadows>1</shadows>
     </scene>
+
     <wind/>
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -84,6 +111,7 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
+
     <model name='officeSpace1'>
       <pose frame=''>1.12783 0.083294 0 0 -0 0</pose>
       <link name='Stairs_0'>
@@ -95,11 +123,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <ambient>0.7 0.490196 0.0666667 1</ambient>
+            <diffuse>0.7 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -134,11 +160,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -173,11 +197,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -212,11 +234,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -251,11 +271,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -290,11 +308,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -329,11 +345,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -368,11 +382,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -407,11 +419,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -446,11 +456,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -485,11 +493,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -524,11 +530,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -563,11 +567,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -602,11 +604,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -641,11 +641,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -685,11 +683,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -724,11 +720,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -763,11 +757,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -802,11 +794,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -841,11 +831,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -880,11 +868,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -919,11 +905,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -958,11 +942,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -997,11 +979,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1036,11 +1016,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1075,11 +1053,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1114,11 +1090,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1153,11 +1127,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1192,11 +1164,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1231,11 +1201,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.756863 0.490196 0.0666667 1</ambient>
+            <diffuse>0.756863 0.490196 0.0666667 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1276,11 +1244,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1315,11 +1281,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1354,11 +1318,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1393,11 +1355,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1432,11 +1392,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1471,11 +1429,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1510,11 +1466,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1549,11 +1503,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1588,11 +1540,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1627,11 +1577,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1666,11 +1614,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1705,11 +1651,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1750,11 +1694,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1789,11 +1731,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1828,11 +1768,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1867,11 +1805,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1906,11 +1842,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1945,11 +1879,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -1990,11 +1922,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2029,11 +1959,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2068,11 +1996,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2107,11 +2033,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2146,11 +2070,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2185,11 +2107,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2224,11 +2144,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2263,11 +2181,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2302,11 +2218,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2341,11 +2255,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2386,11 +2298,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2425,11 +2335,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2464,11 +2372,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
+            <diffuse>0.447059 0.623529 0.811765 1</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2503,10 +2409,9 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+<ambient>0.7 0.7 0.7 1.0</ambient>      
+<diffuse>0.7 0.7 0.7 1.0</diffuse>
+<specular>0.01 0.01 0.01 1.0</specular>
             <ambient>0.447059 0.623529 0.811765 1</ambient>
           </material>
           <meta>
@@ -2568,11 +2473,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2613,11 +2521,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2658,11 +2569,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2703,11 +2617,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2748,11 +2665,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2793,11 +2713,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2838,11 +2761,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2883,11 +2809,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2928,11 +2857,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -2973,11 +2905,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3018,11 +2953,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3063,11 +3001,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3108,11 +3049,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3153,11 +3097,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3198,11 +3145,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3243,11 +3193,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3288,11 +3241,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3333,11 +3289,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3378,11 +3337,14 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
             <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
@@ -3430,10 +3392,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='left_side'>
@@ -3465,10 +3428,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='right_side'>
@@ -3500,10 +3464,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='bottom'>
@@ -3535,10 +3500,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='top'>
@@ -3570,10 +3536,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='low_shelf'>
@@ -3605,10 +3572,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='high_shelf'>
@@ -3640,10 +3608,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -3687,10 +3656,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='left_side'>
@@ -3722,10 +3692,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='right_side'>
@@ -3757,10 +3728,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='bottom'>
@@ -3792,10 +3764,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='top'>
@@ -3827,10 +3800,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='low_shelf'>
@@ -3862,10 +3836,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='high_shelf'>
@@ -3897,10 +3872,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -3944,10 +3920,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='left_side'>
@@ -3979,10 +3956,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='right_side'>
@@ -4014,10 +3992,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='bottom'>
@@ -4049,10 +4028,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='top'>
@@ -4084,10 +4064,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='low_shelf'>
@@ -4119,10 +4100,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='high_shelf'>
@@ -4154,10 +4136,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -4201,10 +4184,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='front_left_leg'>
@@ -4238,10 +4222,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='front_right_leg'>
@@ -4275,10 +4258,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_right_leg'>
@@ -4312,10 +4294,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_left_leg'>
@@ -4349,10 +4330,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -4396,10 +4376,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='front_left_leg'>
@@ -4433,10 +4414,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='front_right_leg'>
@@ -4470,10 +4450,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_right_leg'>
@@ -4507,10 +4486,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_left_leg'>
@@ -4544,10 +4522,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -4591,10 +4568,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='front_left_leg'>
@@ -4628,10 +4606,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='front_right_leg'>
@@ -4665,10 +4642,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_right_leg'>
@@ -4702,10 +4678,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_left_leg'>
@@ -4739,10 +4714,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -4786,10 +4760,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='front_left_leg'>
@@ -4823,10 +4798,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='front_right_leg'>
@@ -4860,10 +4834,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_right_leg'>
@@ -4897,10 +4870,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>  
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_left_leg'>
@@ -4934,10 +4906,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -4981,10 +4952,11 @@
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Wood</name>
-            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
         <collision name='front_left_leg'>
@@ -5018,10 +4990,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='front_right_leg'>
@@ -5055,10 +5026,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_right_leg'>
@@ -5092,10 +5062,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+          <ambient>0.7 0.7 0.7 1.0</ambient>
+          <diffuse>0.7 0.7 0.7 1.0</diffuse>
+          <specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <collision name='back_left_leg'>
@@ -5129,10 +5098,9 @@
             </cylinder>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+<ambient>0.7 0.7 0.7 1.0</ambient>
+<diffuse>0.7 0.7 0.7 1.0</diffuse>
+<specular>0.01 0.01 0.01 1.0</specular>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -5746,6 +5714,7 @@
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
     </state>
+    
     <model name='3WheelRobot'>
       <link name='link_0'>
         <inertial>
@@ -5774,10 +5743,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -5873,10 +5841,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -5973,10 +5940,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -6072,10 +6038,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -6228,6 +6193,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose frame=''>0.278098 -1.31954 0.505 0 -0 0</pose>
     </model>
+
     <model name='3WheelRobot_clone'>
       <link name='link_0'>
         <inertial>
@@ -6256,10 +6222,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -6355,10 +6320,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -6455,10 +6419,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -6554,10 +6517,9 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.7 0.7 0.7 1.0</ambient>
+            <diffuse>0.7 0.7 0.7 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -6710,22 +6672,6 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose frame=''>0.318153 -3.06874 0.505 0 -0 0</pose>
     </model>
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose frame=''>-23.2256 30.7571 44.8833 0 0.777794 -1.19286</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-      <camera name="user_camera">
-        <track_visual>
-          <name>mir500</name>
-          <static>true</static>
-          <use_model_frame>true</use_model_frame>
-          <xyz>-3 0 0</xyz>
-          <inherit_yaw>true</inherit_yaw>
-        </track_visual>
-    </camera>
-    </gui>
   </world>
 </sdf>
 
