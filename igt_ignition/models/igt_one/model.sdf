@@ -237,7 +237,7 @@
 				<update_rate>30</update_rate>
 				<visualize>1</visualize>
 				<pose>0 0.0175 0.5125 0 -0 0</pose>
-				<topic>color_camera</topic>
+				<topic>/model/igt_one/color_camera</topic>
 				<camera name="d435">
 					<horizontal_fov>1.21126</horizontal_fov>
 					<image>
@@ -306,7 +306,7 @@
 				<always_on>1</always_on>
 				<update_rate>90</update_rate>
 				<visualize>0</visualize>
-				<topic>depth_camera</topic>
+				<topic>/model/igt_one/depth_camera</topic>
 				<pose>0 0.0175 0.5125 0 -0 0</pose>
 				<camera name="d435">
 					<horizontal_fov>1.48702</horizontal_fov>
@@ -513,7 +513,9 @@
 			<right_joint>right_motor</right_joint>
 			<wheel_separation>0.50</wheel_separation>
 			<wheel_radius>0.77</wheel_radius>
-			<odom_publish_frequency>1</odom_publish_frequency>
+			<frame_id>odom</frame_id>
+			<child_frame_id>base_link</child_frame_id>
+			<!--        <odom_publish_frequency>1</odom_publish_frequency> -->
 		</plugin>
 	</model>
 </sdf>

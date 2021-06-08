@@ -95,6 +95,18 @@ def generate_launch_description():
 				(ign_model_prefix + '/depth_camera', '/depth_camera'),
 				(ign_model_prefix + '/depth_camera/points', '/depth_camera/points')
 			])
+	
+	# odom to base_link transform bridge
+	odom_base_tf_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
+				namespace=namespace,
+				name = 'odom_base_tf_bridge',
+				output = 'screen',
+				arguments = [
+					ign_model_prefix + '/tf' + '@tf2_msgs/msg/TFMessage' + '[ignition.msgs.Pose_V'
+				],
+				remappings = [
+					(ign_model_prefix + '/tf', '/tf')
+				])
 
 	return LaunchDescription([
 		cmd_vel_bridge,
@@ -102,5 +114,6 @@ def generate_launch_description():
 		odometry_bridge,
 		lidar_bridge,
 		color_camera_bridge,
-		depth_camera_bridge
+		depth_camera_bridge,
+		odom_base_tf_bridge
 	])
