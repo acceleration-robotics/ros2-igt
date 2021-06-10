@@ -142,7 +142,7 @@
             <ambient>1.0 1.0 1.0</ambient>
 	    <pbr>
 	     <metal>
-	       <albedo_map>model://grey_wall/materials/textures/grey_wall.png</albedo_map>
+	       <albedo_map>model://wall/materials/textures/grey_wall.png</albedo_map>
 	     </metal>
 	    </pbr>
           </material>
@@ -191,7 +191,7 @@
             <ambient>1.0 1.0 1.0</ambient>
 	    <pbr>
 	     <metal>
-	       <albedo_map>model://grey_wall/materials/textures/grey_wall.png</albedo_map>
+	       <albedo_map>model://wall/materials/textures/grey_wall.png</albedo_map>
 	     </metal>
 	    </pbr>
           </material>
@@ -240,7 +240,7 @@
             <ambient>1.0 1.0 1.0</ambient>
 	    <pbr>
 	     <metal>
-	       <albedo_map>model://grey_wall/materials/textures/grey_wall.png</albedo_map>
+	       <albedo_map>model://wall/materials/textures/grey_wall.png</albedo_map>
 	     </metal>
 	    </pbr>
           </material>
@@ -289,7 +289,7 @@
             <ambient>1.0 1.0 1.0</ambient>
 	    <pbr>
 	     <metal>
-	       <albedo_map>model://grey_wall/materials/textures/grey_wall.png</albedo_map>
+	       <albedo_map>model://wall/materials/textures/grey_wall.png</albedo_map>
 	     </metal>
 	    </pbr>
           </material>
@@ -338,7 +338,7 @@
             <ambient>1.0 1.0 1.0</ambient>
 	    <pbr>
 	     <metal>
-	       <albedo_map>model://grey_wall/materials/textures/grey_wall.png</albedo_map>
+	       <albedo_map>model://wall/materials/textures/grey_wall.png</albedo_map>
 	     </metal>
 	    </pbr>
           </material>
@@ -387,7 +387,7 @@
             <ambient>1.0 1.0 1.0</ambient>
 	    <pbr>
 	     <metal>
-	       <albedo_map>model://grey_wall/materials/textures/grey_wall.png</albedo_map>
+	       <albedo_map>model://wall/materials/textures/grey_wall.png</albedo_map>
 	     </metal>
 	    </pbr>
           </material>

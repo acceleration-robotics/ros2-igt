@@ -98,7 +98,7 @@ def generate_launch_description():
 	
 	# odom to base_link transform bridge
 	odom_base_tf_bridge = Node(package='ros_ign_bridge', executable='parameter_bridge',
-				namespace=namespace,
+				namespace = namespace,
 				name = 'odom_base_tf_bridge',
 				output = 'screen',
 				arguments = [
