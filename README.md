@@ -2,12 +2,8 @@
 
 ## Installation
   * Install [Ignition-Edifice](https://ignitionrobotics.org/docs/edifice/install_ubuntu) or greater.
-  * Install ros foxy ignition packages
-
-```bash
-sudo apt-get install ros-foxy-ros-ign*
-```
-
+  * Build ros_ign packages for foxy from [source](https://github.com/ignitionrobotics/ros_ign) as the binaries on apt are only supported for Ignition-Citadel as of now so some features might not work with the package from apt.
+  
 * Create a workspace
 
 ```bash
