@@ -39,7 +39,7 @@ def generate_launch_description():
 				 ign_model_prefix + '/odometry' + '@nav_msgs/msg/Odometry' + '[ignition.msgs.Odometry'
 			],
 			remappings = [
-				(ign_model_prefix + '/odometry', '/odom_raw')
+				(ign_model_prefix + '/odometry', '/odom')
 			])
 
 	# joint state bridge 

@@ -35,6 +35,9 @@ endif()
 install(
 	DIRECTORY
 	launch
+	include
+	src
+	maps
 	config
 	DESTINATION
 	share/${PROJECT_NAME}/
