@@ -1,9 +1,9 @@
 <?xml version='1.0'?> 
 <sdf version='1.7'>
   <world name='default'>
-    <physics name='default_physics' default='0' type='ode'>
+    <physics name='1ms' type='ignored'>
       <max_step_size>0.001</max_step_size>
-      <real_time_factor>1</real_time_factor>
+      <real_time_factor>1.0</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
@@ -71,7 +71,7 @@
             </friction>
             <bounce/>
           </surface>
-          <max_contacts>10</max_contacts>
+          <max_contacts>10</max_contacts> 
         </collision>
         <visual name='visual'>
           <cast_shadows>0</cast_shadows>
@@ -103,7 +103,7 @@
       <shadows>1</shadows>
     </scene>
 
-    <wind/>
+<!--    <wind/>
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
       <latitude_deg>0</latitude_deg>
@@ -111,7 +111,7 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-
+-->
     <model name='officeSpace1'>
       <pose frame=''>1.12783 0.083294 0 0 -0 0</pose>
       <link name='Stairs_0'>

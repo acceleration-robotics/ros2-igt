@@ -34,6 +34,7 @@ def generate_launch_description():
 	spawn_sdf = Node(package='ros_ign_gazebo', executable='create',
 			arguments=['-name', 'igt_one',
 				'-x', '0.0',
+                                '-y', '0.0',
 				'-z', '0.0',
 				'-Y', '-1.57',
 				'-file', os.path.join(pkg_igt_ignition, 'models', 'igt_one', 'model.sdf')],
@@ -45,7 +46,6 @@ def generate_launch_description():
 				parameters = [
 					{'ignore_timestamp': False},
 					{'use_tf_static': True},
-					{'publish_frequency': 20.0},
 					{'robot_description': open(urdf_path).read()}],
 				arguments = [urdf_path])	
 

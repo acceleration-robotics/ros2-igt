@@ -234,7 +234,7 @@
       <velocity_decay/>
       <velocity_decay/>
 
-      <gravity>1</gravity>
+<!--      <gravity>1</gravity>
       <velocity_decay/>
       <self_collide>1</self_collide>
       <gravity>1</gravity>
@@ -243,7 +243,7 @@
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
       <gravity>1</gravity>
-
+-->
       <sensor name='d435_color' type='camera'>
         <always_on>1</always_on>
         <update_rate>30</update_rate>
@@ -526,10 +526,10 @@
       name="ignition::gazebo::systems::DiffDrive">
         <left_joint>left_motor</left_joint>
         <right_joint>right_motor</right_joint>
-        <wheel_separation>0.50</wheel_separation>
-        <wheel_radius>0.77</wheel_radius>
-	<frame_id>odom</frame_id>
-	<child_frame_id>base_link</child_frame_id>
+        <wheel_separation>0.494</wheel_separation>
+        <wheel_radius>0.078</wheel_radius>
+	      <frame_id>odom</frame_id>
+	      <child_frame_id>base_link</child_frame_id>
 <!--        <odom_publish_frequency>1</odom_publish_frequency> -->
     </plugin>
 
