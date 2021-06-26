@@ -108,6 +108,15 @@ def generate_launch_description():
 					(ign_model_prefix + '/tf', '/tf')
 				])
 
+	lidar_stf = Node(package='tf2_ros', executable='static_transform_publisher',
+                    	namespace = namespace,
+                        name = 'lidar_stf',
+                        arguments = [
+                            '0', '0', '0', '0', '0', '0', '1',
+                            'lidar',
+                            'igt_one/base_link/front_lidar'
+                        ])
+
 	return LaunchDescription([
 		cmd_vel_bridge,
 		joint_state_bridge,
@@ -115,5 +124,6 @@ def generate_launch_description():
 		lidar_bridge,
 		color_camera_bridge,
 		depth_camera_bridge,
-		odom_base_tf_bridge
+		odom_base_tf_bridge,
+        lidar_stf
 	])
