@@ -12,7 +12,7 @@ def generate_launch_description():
 	pkg_igt_nav = get_package_share_directory('igt_nav')
 	pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
 
-	use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+	use_sim_time = LaunchConfiguration('use_sim_time')
 	map_yaml_file = LaunchConfiguration('map',
 					default=os.path.join(pkg_igt_nav, 'maps', 'lab_map.yaml'))
 	nav2_config_file = LaunchConfiguration('params', 
@@ -35,11 +35,7 @@ def generate_launch_description():
 		     		default_value=nav2_config_file,
 		     		description="Path to nav2 config file"),
 		DeclareLaunchArgument('use_sim_time',
-						default_value='false',
-						description="Use sim clock or not"),
+                                default_value='true',
+                                description="Use sim clock or not"),
 		nav2_bringup_launch_file
 		])
-	
-
-
-	

@@ -87,8 +87,8 @@ def generate_launch_description():
 				 ign_model_prefix + '/laserscan/points' + '@sensor_msgs/msg/PointCloud2' + '[ignition.msgs.PointCloudPacked'
 			],
 			remappings = [
-				(ign_model_prefix + '/laserscan/points', '/igt_one/laserscan/points'),
-				(ign_model_prefix + '/laserscan', '/igt_one/laserscan')
+				(ign_model_prefix + '/laserscan/points', '/scan/points'),
+				(ign_model_prefix + '/laserscan', '/scan')
 			])
 
 
