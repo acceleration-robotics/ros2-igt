@@ -24,14 +24,14 @@ def generate_launch_description():
 					launch_arguments={
 						'map': map_yaml_file,
 						'use_sim_time': use_sim_time,
-						'params': nav2_config_file}.items(),
+						'params_file': nav2_config_file}.items(),
 				)	
 	
 	return LaunchDescription([
 		DeclareLaunchArgument('map',
 					default_value=map_yaml_file,
 					description="Path to Map yaml file"),
-		DeclareLaunchArgument('params',
+		DeclareLaunchArgument('params_file',
 		     		default_value=nav2_config_file,
 		     		description="Path to nav2 config file"),
 		DeclareLaunchArgument('use_sim_time',
