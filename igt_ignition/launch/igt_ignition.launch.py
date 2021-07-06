@@ -36,8 +36,8 @@ def generate_launch_description():
 	# spawn sdf
 	spawn_sdf = Node(package='ros_ign_gazebo', executable='create',
 			arguments=['-name', 'igt_one',
-				'-x', '0.0',
-                                '-y', '0.0',
+				'-x', '2.0',
+                '-y', '0.0',
 				'-z', '0.0',
 				'-Y', '-1.57',
 				'-file', os.path.join(pkg_igt_ignition, 'models', 'igt_one', 'model.sdf')],
