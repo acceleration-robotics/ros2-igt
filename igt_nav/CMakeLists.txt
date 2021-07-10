@@ -35,6 +35,10 @@ endif()
 install(
 	DIRECTORY
 	launch
+	include
+	src
+	maps
+	rviz
 	config
 	DESTINATION
 	share/${PROJECT_NAME}/

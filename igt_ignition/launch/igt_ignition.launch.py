@@ -14,6 +14,7 @@ def generate_launch_description():
 	pkg_ros_ign_gazebo = get_package_share_directory('ros_ign_gazebo')
 	pkg_igt_ignition = get_package_share_directory('igt_ignition')
 	urdf_path = pkg_igt_ignition + '/models/igt_one/igt_one.urdf'
+	use_sim_time = LaunchConfiguration('use_sim_time')
 
 	# Gazebo launch
 	gazebo = IncludeLaunchDescription(
@@ -27,14 +28,16 @@ def generate_launch_description():
 		PythonLaunchDescriptionSource(
 		    os.path.join(pkg_igt_ignition, 'launch', 'ign_bridge.launch.py'),
 		),
+        launch_arguments={
+            'use_sim_time': use_sim_time}.items(),
 		condition = IfCondition(LaunchConfiguration('with_bridge'))
 	)
 
 	# spawn sdf
 	spawn_sdf = Node(package='ros_ign_gazebo', executable='create',
 			arguments=['-name', 'igt_one',
-				'-x', '0.0',
-                                '-y', '0.0',
+				'-x', '2.0',
+                '-y', '0.0',
 				'-z', '0.0',
 				'-Y', '-1.57',
 				'-file', os.path.join(pkg_igt_ignition, 'models', 'igt_one', 'model.sdf')],
@@ -45,6 +48,7 @@ def generate_launch_description():
 				output='screen',
 				parameters = [
 					{'ignore_timestamp': False},
+                                        {'use_sim_time': use_sim_time},
 					{'use_tf_static': True},
 					{'robot_description': open(urdf_path).read()}],
 				arguments = [urdf_path])	
@@ -57,6 +61,8 @@ def generate_launch_description():
 		  description='Ignition Gazebo arguments'),
 		DeclareLaunchArgument('with_bridge', default_value=['false'],
 					description='Launch simulation with ros ign brigde'),
+        DeclareLaunchArgument('use_sim_time', default_value=['true'],
+                    description='Enable sim time from /clock'),
 		gazebo,
 		spawn_sdf,
 		ign_bridge,
