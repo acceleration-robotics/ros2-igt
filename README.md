@@ -34,7 +34,11 @@ ros2 launch igt_ignition igt_ignition.launch.py
 
 ```bash
 ros2 launch igt_ignition igt_ignition.launch.py with_bridge:=true
+
 ```
+
+Make sure you UNPAUSE physics by clicing "play" button in bottom left corner of ignition
+
 and then open another terminal and run
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -65,6 +69,9 @@ ign topic -t "/model/igt_one/odometry" -e
    ```bash
    ros2 launch igt_ignition igt_ignition.launch.py with_bridge:=true
    ```
+   
+ * Make sure you UNPAUSE physics by clicing "play" button in bottom left corner of ignition
+
  * Open another terminal and launch slam_toolbox for mapping and rviz2 using `online_sync_launch.py` from `igt_nav` package:
    ```bash
    ros2 launch igt_nav online_sync_launch.py
@@ -85,6 +92,8 @@ ign topic -t "/model/igt_one/odometry" -e
    ```bash
    ros2 launch igt_ignition igt_ignition.launch.py with_bridge:=true
    ```
+ * Make sure you UNPAUSE physics by clicing "play" button in bottom left corner of ignition
+
  * Launch navigation2 using `navigation2.launch.py` launch file:
    ```bash
    ros2 launch igt_nav navigation2.launch.py
