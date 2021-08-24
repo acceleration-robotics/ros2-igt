@@ -5142,11 +5142,15 @@
             </mesh>
           </geometry>
           <material>
-            <script>
-              <uri>model://table_marble/materials/scripts</uri>
-              <uri>model://table_marble/materials/textures</uri>
-              <name>Table/Marble_Lightmap</name>
-            </script>
+            <diffuse>1.0 1.0 1.0</diffuse>
+            <specular>1.0 1.0 1.0</specular>
+            <ambient>1.0 1.0 1.0</ambient>
+            <pbr>
+              <metal>
+                <albedo_map>model://table_marble/materials/textures/marble.png</albedo_map>
+                <light_map>model://table_marble/materials/textures/table_lightmap.png</light_map>
+              </metal>
+            </pbr>
             <lighting>0</lighting>
           </material>
         </visual>
