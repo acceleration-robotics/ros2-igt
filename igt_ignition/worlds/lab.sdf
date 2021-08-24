@@ -4184,6 +4184,9 @@
             </box>
           </geometry>
           <material>
+          	<diffuse>1.0 1.0 1.0</diffuse>
+            <specular>1.0 1.0 1.0</specular>
+            <ambient>1.0 1.0 1.0</ambient>
             <pbr>
               <metal>
                 <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
@@ -4376,6 +4379,9 @@
             </box>
           </geometry>
           <material>
+          	<diffuse>1.0 1.0 1.0</diffuse>
+            <specular>1.0 1.0 1.0</specular>
+            <ambient>1.0 1.0 1.0</ambient>
             <pbr>
               <metal>
                 <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
@@ -4568,6 +4574,9 @@
             </box>
           </geometry>
           <material>
+          	<diffuse>1.0 1.0 1.0</diffuse>
+            <specular>1.0 1.0 1.0</specular>
+            <ambient>1.0 1.0 1.0</ambient>
             <pbr>
               <metal>
                 <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
@@ -4760,6 +4769,9 @@
             </box>
           </geometry>
           <material>
+          	<diffuse>1.0 1.0 1.0</diffuse>
+            <specular>1.0 1.0 1.0</specular>
+            <ambient>1.0 1.0 1.0</ambient>
             <pbr>
               <metal>
                 <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
@@ -4952,6 +4964,9 @@
             </box>
           </geometry>
           <material>
+          	<diffuse>1.0 1.0 1.0</diffuse>
+            <specular>1.0 1.0 1.0</specular>
+            <ambient>1.0 1.0 1.0</ambient>
             <pbr>
               <metal>
                 <albedo_map>model://wall/materials/textures/wood.jpg</albedo_map>
